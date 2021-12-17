@@ -18,14 +18,14 @@ export class QuestionItemComponent implements OnInit {
   
   }
      
-  addLike(item:any){
-    console.log(item)
-    if(!item.like){
-    item.count++;
-    item.like = true;
+  addLike(question:any){
+    console.log(question)
+    if(!question.like){
+      question.count++;
+      question.like = true;
     }else{
-    item.count--;
-    item.like = false;
+      question.count--;
+      question.like = false;
     }
   
   }
