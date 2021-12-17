@@ -17,9 +17,19 @@ export class QuestionItemComponent implements OnInit {
   ngOnInit(): void {
   
   }
-  toggle(){
-    console.log('toggle')
+     
+  addLike(item:any){
+    console.log(item)
+    if(!item.like){
+    item.count++;
+    item.like = true;
+    }else{
+    item.count--;
+    item.like = false;
+    }
+  
   }
+  
 
 
 }
