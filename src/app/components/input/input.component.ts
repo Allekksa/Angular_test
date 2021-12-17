@@ -13,6 +13,6 @@ export class InputComponent implements OnInit {
   }
 
   addQuestion(value:string){
-    console.log("add question")
+    console.log(value)
   }
 }

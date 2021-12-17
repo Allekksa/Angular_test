@@ -1,5 +1,6 @@
-<form action="onSubmit">
- <input #addQuestion type="text" placeholder="Ваш вопрос" (keyup.enter)="addQuestion(addQuestion.value)">
- <button (click)="addQuestion(addQuestion.value)">Отправить</button>
-</form>
+
+ <input #newQuestion type="text" placeholder="Ваш вопрос" (keyup.enter)="addQuestion(newQuestion.value)">
+ <button (click)="addQuestion(newQuestion.value); newQuestion.value = ''">Отправить</button>
+
+
 
