@@ -1,8 +1,10 @@
-h1 {
-  font-size: 30px;
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
 }
-// .container {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
+
+.questions-container {
+  padding-top: 100px;
+ 
+}
