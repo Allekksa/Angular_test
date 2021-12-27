@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatInputModule} from '@angular/material/input';
+import { QUESTIONS } from '../../mock-questions';
+import { Question } from '../../Questions';
+import { QuestionsComponent } from '../questions/questions.component';
+// import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-input',
@@ -7,7 +10,7 @@ import {MatInputModule} from '@angular/material/input';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-
+  // @Input() QUESTIONS:
   constructor() { }
 
   ngOnInit(): void {

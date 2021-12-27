@@ -9,13 +9,13 @@ export const QUESTIONS: Question[] =  [
     like: false
   },
   {
-    id:1,
+    id:2,
     title: 'Вопрос 2',
     count: 0,
     like: false
   },
   {
-    id:1,
+    id:3,
     title: 'Вопрос 3',
     count: 0,
     like: false
