@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Question } from '../../Questions';
-
+import { QUESTIONS } from '../../mock-questions';
 
 
 @Component({
@@ -23,9 +23,11 @@ export class QuestionItemComponent implements OnInit {
     if(!question.like){
       question.count++;
       question.like = true;
+      QUESTIONS.sort((a, b) => (b.count) - (a.count));
     }else{
       question.count--;
       question.like = false;
+      QUESTIONS.sort((a, b) => (b.count) - (a.count));
     }
   
   }
