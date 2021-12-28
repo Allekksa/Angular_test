@@ -3,6 +3,7 @@ import { Question } from '../../Questions';
 import { QUESTIONS } from '../../mock-questions';
 
 
+
 @Component({
   selector: 'app-question-item',
   templateUrl: './question-item.component.html',
@@ -32,6 +33,10 @@ export class QuestionItemComponent implements OnInit {
   
   }
   
+  hidden = false;
 
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
 
 }
