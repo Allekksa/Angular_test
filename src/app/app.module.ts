@@ -11,7 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { initializeApp } from "firebase/app"
+import { initializeApp } from "firebase/app";
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { initializeApp } from "firebase/app"
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatBadgeModule
+    MatBadgeModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent],
