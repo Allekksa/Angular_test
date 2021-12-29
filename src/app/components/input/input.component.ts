@@ -10,7 +10,7 @@ import { QUESTIONS } from '../../mock-questions';
 export class InputComponent implements OnInit {
  QUESTIONS: any = [];
 
-   constructor() { 
+   constructor() {
    }
 
   ngOnInit(): void {
@@ -25,36 +25,6 @@ export class InputComponent implements OnInit {
     });
 
   }
-
-
-  
-  
-    // addLike(item:any){
-    //   console.log(item)
-    //   if(!item.like){
-    //   item.count++;
-    //   item.like = true;
-    //   this.allQuestionItems.sort((a, b) => (b.count) - (a.count));
-    // }else{
-    //   item.count--;
-    //   item.like = false;
-    //   this.allQuestionItems.sort((a, b) => (b.count) - (a.count));
-    // }
-    
-    
-    
-  
-    // filterQuestions(){
-    //   this.allQuestionItems.sort((a, b) => (b.count) - (a.count));
-    //   console.log(this.allQuestionItems)
-    // }
-  
-    
-
-
-
-
-
 
 
 }

@@ -20,12 +20,10 @@ constructor(private store$: Store) {
 
 }
 
-
-
   ngOnInit(): void {
-  
+
   }
-     
+
   addLike(question:any) {
     console.log(question)
     if(!question.like){
@@ -33,16 +31,14 @@ constructor(private store$: Store) {
       question.like = true;
       QUESTIONS.sort((a, b) => (b.count) - (a.count));
       this.store$.dispatch(like())
-      
+
     }else{
       question.count--;
       question.like = false;
       QUESTIONS.sort((a, b) => (b.count) - (a.count));
       this.store$.dispatch(disLike())
     }
-  
-  }
-  
 
+  }
 
 }
