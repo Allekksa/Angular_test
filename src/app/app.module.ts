@@ -13,10 +13,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { initializeApp } from "firebase/app";
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects'
+import { counterReducer } from './reducers/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -35,9 +36,7 @@ import { EffectsModule } from '@ngrx/effects'
     MatButtonModule,
     MatCardModule,
     MatBadgeModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
+    StoreModule.forRoot({count: counterReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])
   ],
