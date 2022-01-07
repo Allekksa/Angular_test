@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Question } from '../../Questions';
 import { QUESTIONS } from '../../mock-questions';
 import { Store } from '@ngrx/store';
-import { like, disLike } from '../../reducers/counter.actions';
+import { like, disLike } from '../../Store/counter.actions';
 
 @Component({
   selector: 'app-question-item',
