@@ -1,4 +1,4 @@
-<!-- 
+<!--
   <form class="form">
  <input matInput  #newQuestion type="text" placeholder="Ваш вопрос" (keyup.enter)="addQuestion(newQuestion.value)">
  <button (click)="addQuestion(newQuestion.value); newQuestion.value = ''">Отправить</button>
@@ -6,12 +6,14 @@
  <!-- <form class="form"> -->
    <div class="input-container">
     <mat-form-field class="inp" appearance="fill">
-    
+
       <input  #newQuestion type="text" placeholder="Ваш вопрос" (keyup.enter)="addQuestion(newQuestion.value)" matInput>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="addQuestion(newQuestion.value); newQuestion.value = ''">Отправить</button>
-   </div>
+    
 
- 
+  </div>
+
+
 <!-- </form> -->
 

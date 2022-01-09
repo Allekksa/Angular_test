@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects'
-import { counterReducer } from './Store/counter.reducer';
+import { questionsReducer } from './Store/questions.reducer';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { counterReducer } from './Store/counter.reducer';
     MatButtonModule,
     MatCardModule,
     MatBadgeModule,
-    StoreModule.forRoot({count: counterReducer}),
+    StoreModule.forRoot({questions: questionsReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])
   ],

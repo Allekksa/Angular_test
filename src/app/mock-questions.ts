@@ -1,22 +1,22 @@
-import {Question} from './Questions'
+import {Question} from './models/Question'
 
 
 export const QUESTIONS: Question[] =  [
   {
-    id:1,
-    title: 'Вопрос 1',
+    id:'1',
+    question: 'Вопрос 1',
     count: 0,
     like: false
   },
   {
-    id:2,
-    title: 'Вопрос 2',
+    id:'2',
+    question: 'Вопрос 2',
     count: 0,
     like: false
   },
   {
-    id:3,
-    title: 'Вопрос 3',
+    id:'3',
+    question: 'Вопрос 3',
     count: 0,
     like: false
   }

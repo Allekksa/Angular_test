@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Question } from '../../Questions';
+import { Question } from '../../models/Question';
 import { QUESTIONS } from '../../mock-questions';
 import { Store } from '@ngrx/store';
-import { like, disLike } from '../../Store/counter.actions';
+import { likeQuestion, unlikeQuestion } from '../../Store/questions.actions';
 
 @Component({
   selector: 'app-question-item',
@@ -29,14 +29,14 @@ constructor(private store$: Store) {
     if(!question.like){
       question.count++;
       question.like = true;
-      QUESTIONS.sort((a, b) => (b.count) - (a.count));
-      this.store$.dispatch(like())
+      // QUESTIONS.sort((a, b) => (b.count) - (a.count));
+      this.store$.dispatch(likeQuestion({id:question.id}))
 
     }else{
       question.count--;
       question.like = false;
-      QUESTIONS.sort((a, b) => (b.count) - (a.count));
-      this.store$.dispatch(disLike())
+      // QUESTIONS.sort((a, b) => (b.count) - (a.count));
+      this.store$.dispatch(unlikeQuestion({id:question.id}))
     }
 
   }

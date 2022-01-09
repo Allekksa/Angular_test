@@ -1,5 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { QUESTIONS } from '../../mock-questions';
+import { Component, OnInit, Input } from '@angular/core';
+// import { QUESTIONS } from '../../mock-questions';
+import { Store } from '@ngrx/store';
+import { addQuestion } from '../../Store/questions.actions';
+// import { Question } from '../../models/Question';
 
 
 @Component({
@@ -8,23 +11,32 @@ import { QUESTIONS } from '../../mock-questions';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
- QUESTIONS: any = [];
 
-   constructor() {
-   }
+
+constructor(private store$: Store) {
+
+}
+
+
 
   ngOnInit(): void {
   }
 
-  addQuestion(title:string){
 
-    QUESTIONS.push({
-      title,
-      count:0,
-      like: false
-    });
 
-  }
+  addQuestion(question:string){
+   this.store$.dispatch(addQuestion({question:question }));
 
+
+
+    // QUESTIONS.push({
+    //   id: this.randomId(),
+    //   question,
+    //   count:0,
+    //   like: false
+    // });
+
+
+}
 
 }
