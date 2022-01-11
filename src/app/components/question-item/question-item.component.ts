@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Question } from '../../models/Question';
 import { QUESTIONS } from '../../mock-questions';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { likeQuestion, unlikeQuestion } from '../../Store/questions.actions';
+import { selectQuestions, count } from '../../Store/questions.selectors';
 
 @Component({
   selector: 'app-question-item',
@@ -17,7 +19,6 @@ export class QuestionItemComponent implements OnInit {
 
 
 constructor(private store$: Store) {
-
 }
 
   ngOnInit(): void {
@@ -25,16 +26,18 @@ constructor(private store$: Store) {
   }
 
   addLike(question:any) {
-    console.log(question)
+    console.log(question.id)
     if(!question.like){
-      question.count++;
-      question.like = true;
+      // question.count++;
+      // question.like = true;
       // QUESTIONS.sort((a, b) => (b.count) - (a.count));
+
       this.store$.dispatch(likeQuestion({id:question.id}))
 
+
     }else{
-      question.count--;
-      question.like = false;
+      // question.count--;
+      // question.like = false;
       // QUESTIONS.sort((a, b) => (b.count) - (a.count));
       this.store$.dispatch(unlikeQuestion({id:question.id}))
     }

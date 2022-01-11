@@ -11,6 +11,8 @@ import {Action,  createReducer, on } from '@ngrx/store';
 import * as QuestionsActions  from './questions.actions';
 import { environment } from '../../environments/environment';
 import { Question } from '../models/Question';
+import {  } from '../Store/questions.selectors';
+
 
 
 export interface State {
@@ -19,55 +21,58 @@ export interface State {
 }
 
 export const initialState: State = {
-
-questions:[]
-
+  questions:[]
 
 };
 
 
-function randomId () {
+function randomId() {
   return '_' + Math.random().toString(36).slice(-9);
 };
 
-function getCount() {
-  return 0
-}
-function getFalse(){
-  return false
-}
-function getTrue(){
-  return true
-}
+
+
 
 export const questionsReducer = createReducer(
   initialState,
 
-    on(QuestionsActions.likeQuestion, (state, { id}) => ({
-      ...state,
-
-      id:id
-
-    })),
-    on(QuestionsActions.unlikeQuestion, (state, { id }) => ({
-      ...state,
-      // questions: [...state.questions, {id}]
-      // count: questions.count - 1,
-      id:id
-
-
-
-    })),
 
 
     on(QuestionsActions.addQuestion, (state, { question }) => ({
       ...state,
-       questions: [...state.questions, {id:randomId(), question, count:getCount(), like:getFalse()}]
+       questions: [...state.questions, {id:randomId(), question, count:0, like:false}]
 
     })),
 
 
 
+
+    on(QuestionsActions.likeQuestion, (state, { id }) => ({
+      ...state,
+      questions: [ ...state.questions, ...state.questions.filter((question) => {
+        if( question.id === id){
+
+       console.log(question)
+
+        };
+
+    }), ]
+
+    })),
+
+    on(QuestionsActions.unlikeQuestion, (state, { id }) => ({
+      ...state,
+      questions: [ ...state.questions, ...state.questions.filter((question) => {
+        if( question.id === id){
+
+       console.log(question)
+
+        };
+
+    }), ],
+
+
+    })),
 
 
   );
