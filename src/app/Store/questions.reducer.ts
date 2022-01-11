@@ -37,22 +37,26 @@ export const questionsReducer = createReducer(
   on(QuestionsActions.likeQuestion, (state, { id }) => ({
     ...state,
     questions: [
-      ...state.questions.map((question) =>
-        question.id === id
-          ? { ...question, like: true, count: question.count + 1 }
-          : question
-      ),
+      ...state.questions
+        .map((question) =>
+          question.id === id
+            ? { ...question, like: true, count: question.count + 1 }
+            : question
+        )
+        .sort((a, b) => b.count - a.count),
     ],
   })),
 
   on(QuestionsActions.unlikeQuestion, (state, { id }) => ({
     ...state,
     questions: [
-      ...state.questions.map((question) =>
-        question.id === id
-          ? { ...question, like: false, count: question.count - 1 }
-          : question
-      ),
+      ...state.questions
+        .map((question) =>
+          question.id === id
+            ? { ...question, like: false, count: question.count - 1 }
+            : question
+        )
+        .sort((a, b) => b.count - a.count),
     ],
   }))
 );
